@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %} Фрукты {% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        <br>
+        <div class = "row">
+
+            {% for order in orders %}
+                <div class="col-lg-4">
+{#                    {% include "order.html"%}#}
+                    <div class="jumbotron">
+                        <h2>
+                            <a href="{% url 'order_url' order.id %}">{% include "order_element.html" %}</a>
+                            <p><a class="btn" href="{% url 'order_url' id=order.id %}">Узнать подробнее »</a></p>
+                            <button type="button" class="btn btn-default navbar-btn"><a href="{% url 'order_url' order.id %}">Войти</a></button>
+                        </h2>
+                    </div>
+                </div>
+            {% empty %}
+                <div>Пустой список</div>
+            {% endfor %}
+
+        </div>
+        <br>
+    </div>
+    {% if count > 2 %}
+        Большой список
+    {% else %}
+        Список короткий
+    {% endif %}
+
+{% endblock %}

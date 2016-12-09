@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ order.title }}{% endblock %}
+{% block body %}
+
+        <br>
+        <br>
+        <br>
+    <div class="container">
+
+      <h1><center>{{ order.title }}</center></h1>
+      <p><center>{{ order.text }}</center></p>
+        <br>
+        <br>
+        <center><button type="button" class="btn btn-default navbar-btn"><a href="{% url 'main' %}">Назад</a></button></center>
+        <br>
+    </div>
+{% endblock %}
